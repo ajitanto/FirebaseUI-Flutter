@@ -854,15 +854,15 @@ class _Source extends DataTableSource {
 
   @override
   int get rowCount {
-    if (_aggregateSnapshot?.count != null) return _aggregateSnapshot!.count;
+    if (_aggregateSnapshot?.count != null) return _aggregateSnapshot!.count ?? 0;
     // Emitting an extra item during load or before reaching the end
     // allows the DataTable to show a spinner during load & let the user
     // navigate to next page
     if (_previousSnapshot!.isFetching || _previousSnapshot!.hasMore) {
-      return _previousSnapshot!.docs.length + rowsPerPage;
+      return (_previousSnapshot!.docs.length + rowsPerPage) ?? 0;
     }
 
-    return _previousSnapshot!.docs.length;
+    return _previousSnapshot!.docs.length ?? 0
   }
 
   @override

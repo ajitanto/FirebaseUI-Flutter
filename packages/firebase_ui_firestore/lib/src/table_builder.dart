@@ -862,7 +862,7 @@ class _Source extends DataTableSource {
       return (_previousSnapshot!.docs.length + rowsPerPage) ?? 0;
     }
 
-    return _previousSnapshot!.docs.length ?? 0
+    return _previousSnapshot!.docs.length ?? 0;
   }
 
   @override
